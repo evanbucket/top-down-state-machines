@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
     private const float LEFT_MAX = -0.16f;
 
     private int direction = -1;
-    private float xSpeed = 0.02f;
+    private float xSpeed = 0.004f;
 
     public GameObject player;
 

@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 1171600556}
   - component: {fileID: 1171600557}
   m_Layer: 0
-  m_Name: enemy-sheet_0
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,8 +432,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016101541, y: -0.016101541}
-  m_Size: {x: 0.50982654, y: 0.85168743}
+  m_Offset: {x: 0.008790143, y: 0.010864579}
+  m_Size: {x: 0.5181238, y: 0.7977553}
   m_Direction: 0
 --- !u!50 &1529480896
 Rigidbody2D:
@@ -494,9 +494,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -55511537
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 632889596, guid: 4aa322df008715f4f8a410c614b25a66, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
