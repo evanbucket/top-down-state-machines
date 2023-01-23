@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private PlayerState currentState = PlayerState.Idle;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private Animator animator;
     private const int SPEED_UNIT = 1000;
     public float speed;
     // Start is called before the first frame update
@@ -19,17 +20,16 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     void IdleState(Vector2 direction) {
-        sr.color = Color.white;
         if (direction != new Vector2(0,0)){
             currentState = PlayerState.Moving;
         }
     }
 
     void MoveState(Vector2 direction) {
-        sr.color = Color.red;
         if (direction == new Vector2(0,0)){
             currentState = PlayerState.Idle;
         }
@@ -51,12 +51,23 @@ public class PlayerController : MonoBehaviour
             transform.position.x + speed * direction.x / SPEED_UNIT,
             transform.position.y + speed * direction.y / SPEED_UNIT
         );
-
+        // If current state is moving, the player is moving and is doing walking animation
         if (currentState == PlayerState.Moving) {
             MoveState(direction);
+            animator.SetBool("Moving", true);
+        // If current state is idle, the player is idle, and is not doing the walking animation
         } else if (currentState == PlayerState.Idle) {
             IdleState(direction);
+            animator.SetBool("Moving", false);
         }
+        
+        // Flip sprite
+        if (direction.x < 0) {
+            sr.flipX = true;
+        } else if (direction.x > 0) {
+            sr.flipX = false;
+        }
+
         Debug.Log(direction);
     }
      void OnCollisionEnter2D(Collision2D collision) {

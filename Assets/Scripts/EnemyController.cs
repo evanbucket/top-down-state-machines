@@ -11,16 +11,17 @@ public class EnemyController : MonoBehaviour
 
     private EnemyState currentState = EnemyState.Idle;
     private SpriteRenderer sr;
+    private Animator animator;
 
     // The value we found in Debug.Log above.
-    private const float SIGHT_DISTANCE = 8.0f;
+    private const float SIGHT_DISTANCE = 7.7f;
 
     // The two points that the Enemy will move between in the Moving state.
     private const float RIGHT_MAX = 7.16f;
     private const float LEFT_MAX = -0.16f;
 
     private int direction = -1;
-    private float xSpeed = 0.004f;
+    private float xSpeed = 0.02f;
 
     public GameObject player;
 
@@ -60,11 +61,14 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Includes animation parameters
         float distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
         if (currentState == EnemyState.Idle) {
             IdleState(distance);
+            animator.SetBool("Angry", false);
         } else if (currentState == EnemyState.Moving) {
             MovingState(distance);
+            animator.SetBool("Angry", true);
         }
     }
 }
