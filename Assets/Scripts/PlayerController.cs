@@ -68,7 +68,6 @@ public class PlayerController : MonoBehaviour
             sr.flipX = false;
         }
 
-        Debug.Log(direction);
     }
      void OnCollisionEnter2D(Collision2D collision) {
          if (collision.gameObject.tag == "Enemy") {

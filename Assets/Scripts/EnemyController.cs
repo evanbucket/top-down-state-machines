@@ -56,6 +56,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -65,10 +66,10 @@ public class EnemyController : MonoBehaviour
         float distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
         if (currentState == EnemyState.Idle) {
             IdleState(distance);
-            animator.SetBool("Angry", false);
+            animator.SetBool("Moving", false);
         } else if (currentState == EnemyState.Moving) {
             MovingState(distance);
-            animator.SetBool("Angry", true);
+            animator.SetBool("Moving", true);
         }
     }
 }
