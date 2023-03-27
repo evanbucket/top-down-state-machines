@@ -35,10 +35,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-         // +1 for right/up, -1 for left/down.
+        // +1 for right/up, -1 for left/down.
         // Example: Vector2(1, -1) = diagonal direction right and down.
         Vector2 direction = new Vector2(
             Input.GetAxisRaw("Horizontal"),
@@ -66,9 +65,9 @@ public class PlayerController : MonoBehaviour
             sr.flipX = true;
         } else if (direction.x > 0) {
             sr.flipX = false;
-        }
-
+        }  
     }
+
      void OnCollisionEnter2D(Collision2D collision) {
          if (collision.gameObject.tag == "Enemy") {
             // Respawn
